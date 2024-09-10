@@ -8,15 +8,17 @@ export const getBgVariant = (variant: BGVARIANT): ViewStyle => {
       return {
         backgroundColor: "transparent",
         borderWidth: 1.5,
-        borderColor: Colors.GRAY,
+        borderColor: Colors.GRAY.PRIMARY,
       };
-      break;
+    case BGVARIANT.GRAY:
+      return {
+        backgroundColor: Colors.GRAY.SECONDE,
+      };
 
     default:
       return {
         backgroundColor: Colors.PRIMARY,
       };
-      break;
   }
 };
 
@@ -25,6 +27,10 @@ export const getTextVariant = (variant: TEXTVARIANT): TextStyle => {
     case TEXTVARIANT.SECONDE:
       return {
         color: Colors.PRIMARY,
+      };
+    case TEXTVARIANT.GRAY:
+      return {
+        color: "black",
       };
 
     default:

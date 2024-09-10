@@ -8,6 +8,7 @@ import { onboardingSwiperData } from "@/utils/onboardingData";
 import { Colors } from "@/constants";
 import CustomButton from "@/components/CustomButton";
 import { BGVARIANT, TEXTVARIANT } from "@/types/button";
+import { router } from "expo-router";
 
 type Props = {};
 
@@ -36,11 +37,13 @@ const index = (props: Props) => {
         title="Register"
         textVariante={TEXTVARIANT.PRIMARY}
         style={{ marginBottom: 10 }}
+        onPress={() => router.push("./register")}
       />
       <CustomButton
         title="Log in"
         textVariante={TEXTVARIANT.SECONDE}
         bgVariante={BGVARIANT.SECONDE}
+        onPress={() => router.push("./login")}
       />
     </View>
   );

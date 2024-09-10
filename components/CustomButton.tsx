@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from "react-native";
+import { Image, Text, TouchableOpacity } from "react-native";
 import React, { FC } from "react";
 import { styles } from "@/styles/button";
 import { BGVARIANT, ICustomButton, TEXTVARIANT } from "@/types/button";
@@ -10,12 +10,14 @@ const CustomButton: FC<ICustomButton> = ({
   bgVariante = BGVARIANT.PRIMARY,
   style,
   textVariante = TEXTVARIANT.PRIMARY,
+  icon,
 }) => {
   return (
     <TouchableOpacity
       style={[styles.buttonContainer, getBgVariant(bgVariante), style]}
       onPress={onPress}
     >
+      {icon && <Image source={icon} style={styles.buttonIcon} />}
       <Text style={[styles.buttonText, getTextVariant(textVariante)]}>
         {title}
       </Text>

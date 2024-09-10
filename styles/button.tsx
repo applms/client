@@ -11,6 +11,13 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    position: "relative",
+  },
+  buttonIcon: {
+    width: 28,
+    height: 28,
+    position: "absolute",
+    left: 30,
   },
   buttonText: {
     textAlign: "center",

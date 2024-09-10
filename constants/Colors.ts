@@ -13,8 +13,12 @@ export const Colors = {
     PRIMARY: "#0B12",
     SECONDARY: "#9FA3A9",
   },
-  GRAY: "#CFD1D4",
-
+  GRAY: {
+    PRIMARY: "#CFD1D4",
+    SECONDE: "#EDEEF0",
+    THIRD: "#70747E",
+  },
+  ERROR: "#F04438",
   light: {
     text: "#11181C",
     background: "#fff",
