@@ -10,7 +10,7 @@ const CustomInput: FC<ICustomInput> = ({
   placeholder,
   value,
   icon,
-  onChange,
+  onchange,
   style,
   isSecure = false,
   error,
@@ -26,7 +26,7 @@ const CustomInput: FC<ICustomInput> = ({
           placeholderTextColor={Colors.GRAY.THIRD}
           style={styles.inputField}
           secureTextEntry={(isSecure && showPassword) === true}
-          onChange={onChange}
+          onChangeText={onchange}
           value={value}
           {...props}
         />

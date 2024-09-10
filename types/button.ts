@@ -18,4 +18,5 @@ export interface ICustomButton {
   textVariante?: TEXTVARIANT;
   style?: ViewStyle;
   icon?: ImageSourcePropType;
+  isLoading?: boolean;
 }

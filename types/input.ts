@@ -1,9 +1,15 @@
-import { ImageSourcePropType, TextInputProps, ViewStyle } from "react-native";
+import {
+  ImageSourcePropType,
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
+  TextInputProps,
+  ViewStyle,
+} from "react-native";
 
 export interface ICustomInput extends TextInputProps {
   placeholder: string;
   error?: string;
-  onChange?: () => void;
+  onchange?: (e: any) => void;
   value: string;
   style?: ViewStyle;
   icon?: ImageSourcePropType;

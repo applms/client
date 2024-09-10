@@ -23,4 +23,17 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.GRAY.THIRD,
   },
+  loginQuestion: {
+    textAlign: "center",
+    marginTop: 25,
+    fontFamily: Fonts.Jakarta.SEMIBOLD,
+    color: Colors.GRAY.THIRD,
+  },
+  loginQuestionLink: {
+    textAlign: "center",
+    marginTop: 10,
+    fontFamily: Fonts.Jakarta.BOLD,
+    fontSize: 18,
+    color: Colors.PRIMARY,
+  },
 });
