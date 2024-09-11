@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { styles } from "@/styles/auth";
+import defaultStyle from "@/constants";
 import { useFormik } from "formik";
 import { ILogin, IRegister } from "@/types/forms";
 import CustomInput from "@/components/CustomInput";
@@ -16,15 +17,27 @@ import {
   initialReisterValues,
   validationRegisterSchema,
 } from "@/forms/register";
+import {
+  useGetProductsQuery,
+  useRegisterMutation,
+} from "@/store/feature/auth/authApi";
+import { router } from "expo-router";
 
 type Props = {};
 
 const Registerform = (props: Props) => {
+  const [register, { data, error, isError, isSuccess }] = useRegisterMutation();
   const formik = useFormik<IRegister>({
     initialValues: initialReisterValues,
     validationSchema: validationRegisterSchema,
-    onSubmit: (values: ILogin) => {
-      console.log(values);
+    onSubmit: async (values: IRegister) => {
+      register(values)
+        .unwrap()
+        .then(() => {
+          console.log("first");
+          router.push("/login");
+        })
+        .catch(() => {});
     },
   });
 
@@ -49,6 +62,13 @@ const Registerform = (props: Props) => {
               Entre your details
             </Text>
           </View>
+          {isError && (
+            <View style={defaultStyle.messageErrorContainer}>
+              <Text style={defaultStyle.messageErrorText}>
+                Email Already Existe or Somthing Error.
+              </Text>
+            </View>
+          )}
           <View style={{ marginBottom: 100, rowGap: 20 }}>
             <CustomInput
               placeholder="User name"

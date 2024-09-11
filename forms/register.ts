@@ -2,13 +2,13 @@ import * as Yup from "yup";
 import { IRegister } from "@/types/forms";
 
 export const initialReisterValues: IRegister = {
-  username: "",
-  email: "",
-  password: "",
+  username: "mohamed kandad",
+  email: "sasas@gmail.com",
+  password: "assa4712@@A",
 };
 
 export const validationRegisterSchema = Yup.object<IRegister>().shape({
-  username: Yup.string().required().email().label("Username"),
+  username: Yup.string().required().label("Username"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters long")

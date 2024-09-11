@@ -10,15 +10,20 @@ import CustomInput from "@/components/CustomInput";
 import { initialLoginValues, validationLoginSchema } from "@/forms/login";
 import { ILogin } from "@/types/forms";
 import { Link } from "expo-router";
+import { useLoginMutation } from "@/store/feature/auth/authApi";
+import defaultStyle from "@/constants";
 
 type Props = {};
 
 const LoginScreen = (props: Props) => {
+  const [login, { data, error, isError, isSuccess }] = useLoginMutation();
+  console.log(data);
+
   const formik = useFormik({
     initialValues: initialLoginValues,
     validationSchema: validationLoginSchema,
     onSubmit: (values: ILogin) => {
-      console.log(values);
+      login(values).unwrap();
     },
   });
 
@@ -29,6 +34,13 @@ const LoginScreen = (props: Props) => {
           <Text style={styles.loginHeading}>Welcome back!</Text>
           <Text style={styles.loginHeading}>Sign in to continue!</Text>
         </View>
+        {isError && (
+          <View style={defaultStyle.messageErrorContainer}>
+            <Text style={defaultStyle.messageErrorText}>
+              Email or Password incorrect or Somthing Error.
+            </Text>
+          </View>
+        )}
         <View>
           <CustomInput
             placeholder="user name"

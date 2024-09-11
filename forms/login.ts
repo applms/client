@@ -2,8 +2,8 @@ import * as Yup from "yup";
 import { ILogin } from "@/types/forms";
 
 export const initialLoginValues: ILogin = {
-  email: "",
-  password: "",
+  email: "kandad.mohamed@gmail.com",
+  password: "Sika@@123",
 };
 
 export const validationLoginSchema = Yup.object<ILogin>().shape({
